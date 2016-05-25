@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F28b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ibV-ox-q0h">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Kc-Ax-vqh">
+                        <leftBarButtonItems>
+                            <barButtonItem title="删除" id="bdy-9R-ux7">
+                                <connections>
+                                    <action selector="delete:" destination="BYZ-38-t0r" id="cLt-hc-8BC"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="滚动到某一行" id="VFW-yb-TSc">
+                                <connections>
+                                    <action selector="scrolltorow:" destination="BYZ-38-t0r" id="c3v-QX-kyr"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="添加" id="Zk2-pa-RXl">
+                                <connections>
+                                    <action selector="add:" destination="BYZ-38-t0r" id="5uP-FG-gic"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="修改view" id="e9H-fU-UIa">
+                                <connections>
+                                    <action selector="changge:" destination="BYZ-38-t0r" id="Jb6-zV-voV"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="120"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cgd-Jb-Wgr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ibV-ox-q0h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tXP-yv-Y7q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3AB-cu-vNf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gzw-vv-GIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-419" y="135"/>
+        </scene>
+    </scenes>
+</document>
