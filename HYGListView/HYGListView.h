@@ -6,6 +6,14 @@
 //  Copyright © 2016年 侯英格. All rights reserved.
 //
 
+
+/*
+    HYGListView 仅适用于 手写代码 tableview 难以复用的情况 抛弃了协议代理方式
+    自己管理自己的view 大小  十分简单
+ 
+ */
+
+
 #import <UIKit/UIKit.h>
 
 @interface HYGListView : UIScrollView
