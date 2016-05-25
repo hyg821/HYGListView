@@ -31,6 +31,11 @@
                                     <action selector="scrolltorow:" destination="BYZ-38-t0r" id="c3v-QX-kyr"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="隐藏某一行" id="J8r-7E-ZfU">
+                                <connections>
+                                    <action selector="hiderow:" destination="BYZ-38-t0r" id="FGz-Bm-Oys"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem title="添加" id="Zk2-pa-RXl">
@@ -43,12 +48,18 @@
                                     <action selector="changge:" destination="BYZ-38-t0r" id="Jb6-zV-voV"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="显示某一行" id="G3B-u9-Lu2">
+                                <connections>
+                                    <action selector="showRow:" destination="BYZ-38-t0r" id="zqo-NJ-QLJ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem id="Nqn-j0-Smc"/>
                         </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257" y="120"/>
+            <point key="canvasLocation" x="1078" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cgd-Jb-Wgr">

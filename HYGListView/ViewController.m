@@ -59,6 +59,14 @@
     [self.listView scrollToRow:15];
 }
 
+
+- (IBAction)hiderow:(id)sender {
+    [self.listView hidenRow:3];
+}
+- (IBAction)showRow:(id)sender {
+    [self.listView showRow:3];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

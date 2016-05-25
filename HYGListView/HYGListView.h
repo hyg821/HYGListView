@@ -42,6 +42,16 @@
 /**删除某一个view*/
 -(void)deleteView:(UIView*)view;
 
+/**隐藏某一行*/
+-(void)hidenRow:(NSInteger)row;
+/**隐藏某一个view*/
+-(void)hidenView:(UIView*)view;
+
+/**隐藏某一行*/
+-(void)showRow:(NSInteger)row;
+/**隐藏某一个view*/
+-(void)showView:(UIView*)view;
+
 /**滚动到某一行*/
 -(void)scrollToRow:(NSInteger)row;
 /**滚动到某一个view*/

@@ -7,6 +7,7 @@
 //
 
 #import "HYGListView.h"
+#import "UIView+Addition.h"
 
 @interface HYGListView()
 @property(nonatomic,assign)CGSize size;
@@ -181,6 +182,64 @@
         if ([vx isEqual:view]) {
             NSInteger row= [self.viewArray indexOfObject:vx];
             [self scrollToRow:row];
+        }
+    }
+}
+
+/**隐藏某一行*/
+-(void)hidenRow:(NSInteger)row{
+    if (self.viewArray.count>=row+1) {
+        UIView*view=[self.viewArray objectAtIndex:row];
+        if (view.frame.size.height!=0) {
+            [self privateHidenOrShow:YES WithView:view];
+            [self reloadSizeWithAnimation:YES];
+        }
+    }
+}
+
+/**隐藏某一个view*/
+-(void)hidenView:(UIView*)view{
+    for (UIView*vx in self.viewArray) {
+        if ([vx isEqual:view]) {
+            NSInteger row= [self.viewArray indexOfObject:vx];
+            [self hidenRow:row];
+        }
+    }
+}
+
+/**显示某一行*/
+-(void)showRow:(NSInteger)row{
+    if (self.viewArray.count>=row+1) {
+        UIView*view=[self.viewArray objectAtIndex:row];
+        [self privateHidenOrShow:NO WithView:view];
+        [self reloadSizeWithAnimation:YES];
+    }
+
+}
+/**显示某一个view*/
+-(void)showView:(UIView*)view{
+    for (UIView*vx in self.viewArray) {
+        if ([vx isEqual:view]) {
+            NSInteger row= [self.viewArray indexOfObject:vx];
+            [self showRow:row];
+        }
+    }
+}
+
+-(void)privateHidenOrShow:(BOOL)showOrHiden WithView:(UIView*)view{
+    //show
+    if (showOrHiden==YES) {
+        view.oldHeight=@(view.frame.size.height);
+        [UIView animateWithDuration:0.2 animations:^{
+            view.frame=CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, 0);
+        }];
+    }
+    //hiden
+    else{
+        if ([view.oldHeight doubleValue]!=0) {
+            [UIView animateWithDuration:0.2 animations:^{
+                view.frame=CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, [view.oldHeight doubleValue]);
+            }];
         }
     }
 }
