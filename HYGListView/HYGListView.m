@@ -25,7 +25,7 @@ static char*hygOldheight;
 @end
 
 @interface HYGListView()
-@property(nonatomic,assign)CGSize size;
+@property(nonatomic,assign)CGSize hyg_Size;
 @end
 
 @implementation HYGListView
@@ -39,6 +39,10 @@ static char*hygOldheight;
 -(void)addNotification{
 }
 
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [self reloadSize];
+}
 
 -(HYGListView*)initWithViewArray:(NSMutableArray*)viewArray{
     self=[super init];
@@ -70,7 +74,7 @@ static char*hygOldheight;
 }
 
 -(void)reloadSize{
-    self.size=CGSizeMake(self.frame.size.width,0);
+    self.hyg_Size=CGSizeMake(self.frame.size.width,0);
     for (UIView*view in self.viewArray) {
         [self addSubview:view];
     }
@@ -84,15 +88,14 @@ static char*hygOldheight;
             newView.frame=CGRectMake(0, lastView.frame.origin.y+lastView.frame.size.height, self.frame.size.width, newView.frame.size.height);
             lastView=newView;
         }
-        self.size=CGSizeMake(self.frame.size.width,self.size.height+lastView.frame.size.height);
+        self.hyg_Size=CGSizeMake(self.frame.size.width,self.hyg_Size.height+lastView.frame.size.height);
     }];
-    self.contentSize=CGSizeMake(self.frame.size.width, self.size.height);
-    NSLog(@"%@",NSStringFromCGSize(self.contentSize));
+    self.contentSize=CGSizeMake(self.frame.size.width, self.hyg_Size.height);
 }
 
 
 -(void)reloadSizeWithRow:(NSInteger)row{
-    self.size=CGSizeMake(self.frame.size.width,0);
+    self.hyg_Size=CGSizeMake(self.frame.size.width,0);
     __block CGFloat viewHeight=0;
     [self.viewArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx==row) {
@@ -108,7 +111,6 @@ static char*hygOldheight;
         [self.viewArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (idx<row) {
                 lastView=(UIView*)obj;
-                NSLog(@"%@",NSStringFromCGRect(lastView.frame));
             }
             if (idx==row) {
                 UIView*reloadLastView=[self.viewArray objectAtIndex:row-1];
@@ -119,10 +121,9 @@ static char*hygOldheight;
                 newView.frame=CGRectMake(0, lastView.frame.origin.y+lastView.frame.size.height, self.frame.size.width, newView.frame.size.height);
                 lastView=newView;
             }
-            self.size=CGSizeMake(self.frame.size.width,self.size.height+lastView.frame.size.height);
-            NSLog(@"idx=%lu   %f",(unsigned long)idx,self.size.height);
+            self.hyg_Size=CGSizeMake(self.frame.size.width,self.hyg_Size.height+lastView.frame.size.height);
         }];
-        self.contentSize=CGSizeMake(self.frame.size.width, self.size.height);
+        self.contentSize=CGSizeMake(self.frame.size.width, self.hyg_Size.height);
     }];
 }
 
@@ -179,11 +180,8 @@ static char*hygOldheight;
 }
 
 -(void)scrollToRow:(NSInteger)row{
-    NSLog(@"%.f",self.contentInset.top);
     if (self.viewArray.count>=row+1) {
         UIView*view=[self.viewArray objectAtIndex:row];
-        NSLog(@"%f",view.frame.origin.y+view.frame.size.height);
-        NSLog(@"%f",self.contentSize.height+[UIScreen mainScreen].bounds.size.height-self.contentInset.top);
         if (view.frame.origin.y+view.frame.size.height+[UIScreen mainScreen].bounds.size.height-self.contentInset.top>self.contentSize.height) {
             [self setContentOffset:CGPointMake(0, self.contentSize.height-[UIScreen mainScreen].bounds.size.height) animated:YES];
         }else{
