@@ -18,6 +18,11 @@
 
 #import <UIKit/UIKit.h>
 
+@interface UIView (Addition)
+@property(nonatomic,strong)NSNumber* oldHeight;
+@end
+
+
 @interface HYGListView : UIScrollView
 @property(nonatomic,strong)NSMutableArray*viewArray;
 @property(nonatomic,assign)BOOL cellIsNeedsize;

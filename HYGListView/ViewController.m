@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     NSMutableArray*array=[NSMutableArray array];
-    for (int i=0; i<30; i++) {
+    for (int i=0; i<150; i++) {
         int c=0;
         if (i%2==0) {
             c=100;

@@ -7,7 +7,22 @@
 //
 
 #import "HYGListView.h"
-#import "UIView+Addition.h"
+#import <objc/runtime.h>
+
+@implementation UIView (Addition)
+
+static char*hygOldheight;
+
+-(NSNumber *)oldHeight{
+    NSNumber* number=objc_getAssociatedObject(self, & hygOldheight);
+    return  number;
+}
+
+-(void)setOldHeight:(NSNumber *)oldHeight{
+    objc_setAssociatedObject(self, &hygOldheight, oldHeight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
 
 @interface HYGListView()
 @property(nonatomic,assign)CGSize size;

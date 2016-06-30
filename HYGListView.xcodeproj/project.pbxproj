@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B534E92B1CF568480075953F /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B534E92A1CF568480075953F /* UIView+Addition.m */; };
 		B56F1A461CF434E500919CF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B56F1A451CF434E500919CF8 /* main.m */; };
 		B56F1A491CF434E500919CF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B56F1A481CF434E500919CF8 /* AppDelegate.m */; };
 		B56F1A4C1CF434E500919CF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56F1A4B1CF434E500919CF8 /* ViewController.m */; };
@@ -37,8 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B534E9291CF568480075953F /* UIView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Addition.h"; sourceTree = "<group>"; };
-		B534E92A1CF568480075953F /* UIView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
 		B56F1A411CF434E500919CF8 /* HYGListView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYGListView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56F1A451CF434E500919CF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B56F1A471CF434E500919CF8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,8 +108,6 @@
 				B56F1A481CF434E500919CF8 /* AppDelegate.m */,
 				B56F1A4A1CF434E500919CF8 /* ViewController.h */,
 				B56F1A4B1CF434E500919CF8 /* ViewController.m */,
-				B534E9291CF568480075953F /* UIView+Addition.h */,
-				B534E92A1CF568480075953F /* UIView+Addition.m */,
 				B56F1A771CF4351000919CF8 /* HYGListView.h */,
 				B56F1A781CF4351000919CF8 /* HYGListView.m */,
 				B56F1A4D1CF434E500919CF8 /* Main.storyboard */,
@@ -281,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B56F1A4C1CF434E500919CF8 /* ViewController.m in Sources */,
-				B534E92B1CF568480075953F /* UIView+Addition.m in Sources */,
 				B56F1A491CF434E500919CF8 /* AppDelegate.m in Sources */,
 				B56F1A461CF434E500919CF8 /* main.m in Sources */,
 				B56F1A791CF4351000919CF8 /* HYGListView.m in Sources */,
