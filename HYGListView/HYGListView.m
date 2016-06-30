@@ -74,23 +74,25 @@ static char*hygOldheight;
 }
 
 -(void)reloadSize{
-    self.hyg_Size=CGSizeMake(self.frame.size.width,0);
-    for (UIView*view in self.viewArray) {
-        [self addSubview:view];
-    }
-    __block UIView*lastView;
-    [self.viewArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx==0) {
-            lastView.frame=CGRectMake(0, 0,self.frame.size.width,lastView.frame.size.height);
-            lastView=(UIView*)obj;
-        }else{
-            UIView*newView=(UIView*)obj;
-            newView.frame=CGRectMake(0, lastView.frame.origin.y+lastView.frame.size.height, self.frame.size.width, newView.frame.size.height);
-            lastView=newView;
+    if (self.frame.size.width!=self.hyg_Size.width) {
+        self.hyg_Size=CGSizeMake(self.frame.size.width,0);
+        for (UIView*view in self.viewArray) {
+            [self addSubview:view];
         }
-        self.hyg_Size=CGSizeMake(self.frame.size.width,self.hyg_Size.height+lastView.frame.size.height);
-    }];
-    self.contentSize=CGSizeMake(self.frame.size.width, self.hyg_Size.height);
+        __block UIView*lastView;
+        [self.viewArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (idx==0) {
+                lastView.frame=CGRectMake(0, 0,self.frame.size.width,lastView.frame.size.height);
+                lastView=(UIView*)obj;
+            }else{
+                UIView*newView=(UIView*)obj;
+                newView.frame=CGRectMake(0, lastView.frame.origin.y+lastView.frame.size.height, self.frame.size.width, newView.frame.size.height);
+                lastView=newView;
+            }
+            self.hyg_Size=CGSizeMake(self.frame.size.width,self.hyg_Size.height+lastView.frame.size.height);
+        }];
+        self.contentSize=CGSizeMake(self.frame.size.width, self.hyg_Size.height);
+    }
 }
 
 
