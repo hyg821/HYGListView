@@ -74,7 +74,7 @@ static char*hygOldheight;
 }
 
 -(void)reloadSize{
-    if (self.frame.size.width!=self.hyg_Size.width) {
+    if (self.frame.size.height!=self.hyg_Size.height) {
         self.hyg_Size=CGSizeMake(self.frame.size.width,0);
         for (UIView*view in self.viewArray) {
             [self addSubview:view];
@@ -157,6 +157,7 @@ static char*hygOldheight;
     if (self.viewArray.count>=row+1) {
         UIView*view=[self.viewArray objectAtIndex:row];
         [self.viewArray removeObject:view];
+        self.hyg_Size=CGSizeMake(self.hyg_Size.width,self.hyg_Size.height-view.frame.size.height);
         [self reloadSizeWithAnimation:YES];
         [self privateDeleteView:view];
     }
@@ -165,7 +166,8 @@ static char*hygOldheight;
 -(void)deleteView:(UIView*)view{
     for (UIView*vx in self.viewArray) {
         if ([vx isEqual:view]) {
-            [self.viewArray delete:vx];
+            [self.viewArray removeObject:vx];
+            self.hyg_Size=CGSizeMake(self.hyg_Size.width,self.hyg_Size.height-view.frame.size.height);
             [self reloadSizeWithAnimation:YES];
             [self privateDeleteView:vx];
             break;
